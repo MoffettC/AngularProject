@@ -3,6 +3,11 @@
 	   Welcome to {{ title }}!
 	 </h1>
 
-	 <app-heroes></app-heroes>
+	<nav>
+		<a routerLink="/dashboard">Dashboard</a>
+  		<a routerLink="/heroes">Heroes</a>
+	</nav>
 
-	<app-messages></app-messages>
+	<router-outlet></router-outlet> <!-- routes user around site -->
+
+	<app-messages></app-messages><!--  displays debug messages for async calls -->
