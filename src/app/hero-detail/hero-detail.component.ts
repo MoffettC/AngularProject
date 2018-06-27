@@ -27,8 +27,13 @@ export class HeroDetailComponent implements OnInit {
 	getHero(): void {
 	  const id = +this.route.snapshot.paramMap.get('id'); //image of route, with paramMap to id, '+' converts route string params to int
 	  this.heroService.getHero(id)
-	    .subscribe(hero => this.hero = hero);
+	    .subscribe(hero => this.hero = hero); //service.subscribe returns a callback that exec the method inside 
 	}
+
+	save(): void {
+	   this.heroService.updateHero(this.hero) //service.subscribe returns a callback that exec the method inside 
+	     .subscribe(() => this.goBack());
+	 }
 
 	goBack(): void {
 		this.location.back();

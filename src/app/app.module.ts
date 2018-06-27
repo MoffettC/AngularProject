@@ -11,6 +11,12 @@ import { MessagesComponent } from './messages/messages.component'; //async messa
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component'; //imports routing module
 
+import { HttpClientModule } from '@angular/common/http'; //imports http
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HeroSearchComponent } from './hero-search/hero-search.component'; //these two imports for testing on local server
+// import { InMemoryDataService }  from './in-memory-data.service';
+
 @NgModule({
 
   declarations: [
@@ -18,13 +24,22 @@ import { DashboardComponent } from './dashboard/dashboard.component'; //imports 
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
 
   imports: [
   BrowserModule,
   FormsModule,
-  AppRoutingModule
+  AppRoutingModule,
+  HttpClientModule,
+
+  // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+  // and returns simulated server responses.
+  // Remove it when a real server is ready to receive requests.
+  // HttpClientInMemoryWebApiModule.forRoot( //import after http client!
+  //   InMemoryDataService, { dataEncapsulation: false }
+  // )
 ],
 
   providers: [],
