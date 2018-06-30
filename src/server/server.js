@@ -17,8 +17,8 @@ app.listen(process.env.PORT || 8080);
 
 ///////////////DB STUFF////////////////////////////
 // console.log(process);
-// console.log(process.env.DATABASE_URL);
-
+console.log(process.env.DATABASE_URL);
+//console.log(process.env);
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -28,9 +28,13 @@ const pool = new Pool({
 app.get('/db', async (req, res) => {
   try {
   	console.log('connecting to db');
-    const client = await pool.connect()
+
+    const client = await pool.connect();
     const result = await client.query('SELECT * FROM test_table');
-    res.render('pages/db', result);
+
+    console.log('finished to db');
+    //res.render('pages/db', result);
+
     client.release();
     
   } catch (err) {
