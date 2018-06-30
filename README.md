@@ -1,3 +1,6 @@
+#Currently built and running chrismoffett.herokuapp.com
+Simple project using tutorials, nodejs, and heroku. Web app is unformatted for now as this was a learning project
+
 # AngularTourOfHeroes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
