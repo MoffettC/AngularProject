@@ -17,7 +17,7 @@ export class HeroService {
 	//currently because http is being mocked to local memory,
 	//the database is being pulled from in-memory-data service db
 	//will implement a mysql db and replace this url
-	private heroesUrl = 'api/heroes';  // URL to web api, http://chrismoffett.herokuapp.com/
+	private heroesUrl = 'http://chrismoffett.herokuapp.com/api/heroes';  // URL to web api, http://chrismoffett.herokuapp.com/
 
 	constructor(
   		private http: HttpClient,

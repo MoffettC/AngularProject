@@ -84,3 +84,21 @@ nav a.active {
 .padding{
   padding: 10px;
 }
+
+@media (max-width: 600px) {
+  .info {
+     width: 70%;
+    font-size: 10px;
+    max-height: 75px; 
+  }
+  .center {
+     width: 70%;
+    font-size: 10px;
+    max-height: 75px; 
+  }
+}
+@media (max-width: 1024px) {
+  .info {
+      
+  }
+}
