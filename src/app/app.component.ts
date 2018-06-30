@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 
 export class AppComponent {
- 	constructor(private router: Router) { //get singleton router to toggle html
+ 	constructor(public router: Router) { //get singleton router to toggle html
  	}
 
   title = 'Some Web App';
