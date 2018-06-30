@@ -20,11 +20,11 @@
       font-family: Arial, Helvetica, sans-serif;
     }*/
 
-    /* AppComponent's private CSS styles */
+/* AppComponent's private CSS styles */
     
 h1 {
-  font-size: 1.2em;
-  color: #999;
+  font-size: 2em;
+  color: black;
   margin-bottom: 0;
 }
 h2 {
@@ -32,6 +32,11 @@ h2 {
   margin-top: 0;
   padding-top: 0;
 }
+
+span{
+padding-left: 15px;
+}
+
 nav a {
   padding: 5px 10px;
   text-decoration: none;
@@ -49,4 +54,33 @@ nav a:hover {
 }
 nav a.active {
   color: #039be5;
+}
+
+.center {
+  margin: auto;
+  width: 30%;
+  text-indent: 1%;
+  padding-top: 10px;
+}
+
+.info {
+  margin: auto;
+  width: 30%;
+}
+
+.main{
+  text-align: center;
+  padding-bottom: 10px;
+
+}
+.top{
+  overflow: hidden;
+  width: 100%;
+
+  background-color: #33cccc;
+  background-size: auto 100%;
+}
+
+.padding{
+  padding: 10px;
 }

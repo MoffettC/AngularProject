@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+html { 
+	background-color: lightblue;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+/*  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+}
+
+body {
+  margin: 0;
+}

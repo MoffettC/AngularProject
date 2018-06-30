@@ -28,3 +28,9 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+span{
+padding-left: 15px;
+}
+.center{
+  text-align: center;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,5 +10,8 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
-  title = 'Tour of Heroes';
+ 	constructor(private router: Router) { //get singleton router to toggle html
+ 	}
+
+  title = 'Some Web App';
 }

@@ -1,13 +1,12 @@
-<h3>Top Heroes</h3>
-<div class="grid grid-pad">
+<h3>Top Foods</h3>
 
-  <a *ngFor="let hero of heroes" class="col-1-4" routerLink="/detail/{{hero.id}}"> <!--  create links for every hero -->
-
-    <div class="module hero">
+<div class="grid grid-pad"> <!-- block lvl for list -->
+  <a *ngFor="let hero of heroes" class="col-1-4" routerLink="/detail/{{hero.id}}"> <!--  create links for every hero, block lvl css for all list elements -->
+    <div class="module hero"> <!-- modify each heros css -->
      	 <h4>{{hero.name}}</h4>
     </div>
-
   </a>
-
 </div>
-<app-hero-search></app-hero-search>
+
+
+<app-hero-search class="center"></app-hero-search>

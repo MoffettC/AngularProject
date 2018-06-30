@@ -11,16 +11,17 @@ const httpOptions = {	//must be before decorators!
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class HeroService {
 
-	private heroesUrl = 'api/heroes';  // URL to web api
+	//currently because http is being mocked to local memory,
+	//the database is being pulled from in-memory-data service db
+	//will implement a mysql db and replace this url
+	private heroesUrl = 'api/heroes';  // URL to web api, http://chrismoffett.herokuapp.com/
 
 	constructor(
   		private http: HttpClient,
-  		private messageService: MessageService) { }
+  		private messageService: MessageService) { } // message service is an injected logger
 
 	/** Log a HeroService message with the MessageService */
 	private log(message: string) {

@@ -1,13 +1,33 @@
+	<div class="top">
+		 <h1 class="main">
+		   Welcome to {{ title }}!
+		 </h1>
 
-	 <h1>
-	   Welcome to {{ title }}!
-	 </h1>
+		<nav class="main">
+			<a routerLink="/dashboard">Dashboard</a> <span><a routerLink="/heroes">Heroes</a></span>
+		</nav>
+	</div>
 
-	<nav>
-		<a routerLink="/dashboard">Dashboard</a>
-  		<a routerLink="/heroes">Heroes</a>
-	</nav>
+	<div *ngIf="router.url === '/dashboard'" class="center"> 		
+		If you made it this far, Chris has managed to convince you to come to this webapp he built. 
+		This is a site that has a list of 'heroes' you can modify using angularJS code. 
+		You can change the heroes names and it will be temporarily stored on a local database. Searching, 
+		deleting, and adding are also possible. <br><br>
 
-	<router-outlet></router-outlet> <!-- routes user around site -->
+	</div>
 
-	<app-messages></app-messages><!--  displays debug messages for async calls -->
+	<div *ngIf="router.url === '/dashboard'" class="info">
+		-Logging info is displayed bottom right <br>
+		-Youll probably only appreciate this if your a software dev :)<br>
+		-Mess around with the site! (theres not much anyways right now)<br>
+		-Built with angularJS, nodeJS, heroku
+	</div>
+
+	<div class="padding">
+		<!-- routes user around site --, app-routing-module (imported into app module, into app component) defaults this to dashboard, but this will get switched out depending on routing links-->
+		<router-outlet></router-outlet> 
+
+		<app-messages ></app-messages><!--  displays debug messages for async calls -->
+	<div>
+
+		<!-- *ng-if="routeSnap === '/dashboard'" -->
