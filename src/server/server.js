@@ -21,7 +21,7 @@ console.log(process.env.DATABASE_URL);
 //console.log(process.env);
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: 'postgres://untohgylrqhoto:2ca8f7bac8bd37ba367eb42219eed9bb9a2e81cd94dafbd477bad60d574b429a@ec2-107-21-95-70.compute-1.amazonaws.com:5432/dcgpvlfulr1fdv',
   ssl: true
 });
 
@@ -31,7 +31,7 @@ app.get('/db', async (req, res) => {
 
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM test_table');
-
+    console.log(result);
     console.log('finished to db');
     //res.render('pages/db', result);
 
