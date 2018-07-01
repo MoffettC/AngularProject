@@ -4,24 +4,41 @@ const path = require('path');
 const app = express();
 const { Pool, Client } = require('pg');
 
+
+// const dotenv = require(‘dotenv’);
+// dotenv.config();
+
+if (process.env.NODE_ENV !== 'production') {
+  const dotenv = require('dotenv');
+  const { error } = dotenv.config();
+  if (error) {
+    throw error
+  } 
+  dotenv.load();
+  console.log('loaded env');
+}
+
 console.log('start');
 var rootpath = path.resolve(__dirname, '../../'); //due to file structure, rootpath to dist folder is up several dir....
-
 // Serve only the static files form the dist directory
 app.use(express.static(path.join(rootpath +'/dist/angular-tour-of-heroes')));
 //app.use(express.static(__dirname + '/dist/angular-tour-of-heroes'));
-
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
 
 ///////////////DB STUFF////////////////////////////
 // console.log(process);
-console.log(process.env.DATABASE_URL);
+//console.log(process.env.DATABASE_URL);
+//console.log(process.env.TEST);
 //console.log(process.env);
 
+const db = process.env.DATABASE_URL || "postgres://localhost:5432/angular-tour-of-heroes";
+
+//console.log(db);
+
 const pool = new Pool({
-  connectionString: 'postgres://untohgylrqhoto:2ca8f7bac8bd37ba367eb42219eed9bb9a2e81cd94dafbd477bad60d574b429a@ec2-107-21-95-70.compute-1.amazonaws.com:5432/dcgpvlfulr1fdv',
+  connectionString: db,
   ssl: true
 });
 
