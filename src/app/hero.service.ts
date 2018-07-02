@@ -17,7 +17,7 @@ export class HeroService {
 	//currently because http is being mocked to local memory,
 	//the database is being pulled from in-memory-data service db
 	//will implement a mysql db and replace this url
-	private heroesUrl = 'http://chrismoffett.herokuapp.com/api/heroes';  // URL to web api, http://chrismoffett.herokuapp.com/
+	private heroesUrl = '/api/heroes';  // URL to web api, http://chrismoffett.herokuapp.com/
 
 	constructor(
   		private http: HttpClient,
@@ -29,7 +29,7 @@ export class HeroService {
 	}
 	
 	/** GET heroes from the server */
-	getHeroes (): Observable<Hero[]> {	
+	getHeroes (): Observable<Hero[]> {	//returns an observable array of hero[] json obj
 	  return this.http.get<Hero[]>(this.heroesUrl)
 	    .pipe(
 	      tap(heroes => this.log(`fetched foods`)),
