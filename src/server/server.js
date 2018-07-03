@@ -99,6 +99,26 @@ app.get('/api/heroes/:id', async (req, res) => {
   }
 });
 
+app.get('/api/heroes/:name', async (req, res) => { //search call
+  try {
+    console.log('connecting to get id db');
+
+    var name = req.params.name; //generic
+
+    const client = await pool.connect();
+    const result = await client.query('SELECT id, food FROM test_table WHERE name = $1', [name]);
+
+    var hero = {id: result.rows[0].id, name: result.rows[0].food}; //hero obj
+    res.send(hero);
+
+    client.release();
+    
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
 
 
 app.get('/*', function(req,res) { //wild card last check
