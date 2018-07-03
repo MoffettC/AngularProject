@@ -75,15 +75,21 @@ app.get('/api/heroes', async (req, res) => {
   }
 });
 
-app.post('/api/heroes/:id', async (req, res) => {
+app.get('/api/heroes/:id', async (req, res) => {
   try {
-    console.log('connecting to post db');
+    console.log('connecting to get id db');
 
-    //console.log(req.params.id); //generic
-    //var id = req.query.id; //expressjs
+    //var id2 = req.query.id; //expressjs
+    //console.log(id2);
+
+    var id = req.params.id; //generic
+    //console.log(req.params.id); 
 
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM test_table');
+    const result = await client.query('SELECT id, food FROM test_table WHERE id = $1', [id]);
+
+    var hero = {id: result.rows[0].id, name: result.rows[0].food}; //hero obj
+    res.send(hero);
 
     client.release();
     
