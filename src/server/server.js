@@ -56,10 +56,16 @@ app.get('/api/heroes', async (req, res) => {
     //console.log(result.rows[0].food);
     //res.json([ { id: result.rows[0].id, food: result.rows[0].food } ]);
 
-    res.send( [ { id: result.rows[0].id, name: result.rows[0].food },
-                { id: 2, name: 'jelly' },
-                { id: 3, name: 'mexican' }
-                                                                       ] );
+    var heroes = [];
+    for (var i in result.rows) {
+      heroes.push({id: result.rows[i].id, name: result.rows[i].food});
+    }
+    res.send(heroes);
+
+    // res.send( [ { id: result.rows[0].id, name: result.rows[0].food },
+    //             { id: 2, name: 'jelly' },
+    //             { id: 3, name: 'mexican' }
+    //                                                                    ] );
 
     client.release();
     
