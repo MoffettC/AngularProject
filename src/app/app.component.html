@@ -4,22 +4,21 @@
 		 </h1>
 
 		<nav class="main">
-			<a routerLink="/dashboard">Dashboard</a> <span><a routerLink="/heroes">Foods</a></span>
+			<a routerLink="/dashboard">Home</a> <span><a routerLink="/heroes">Foods List</a></span>
 		</nav>
 	</div>
 
 	<div *ngIf="router.url === '/dashboard'" class="center"> 		
 		The idea of the site is to have it randomly pick a type of food to eat based
-		on a list of places (either default or user customized). Useful for boyfriends.
+		on a list of places (either default or user customized). Useful for indecisive significant others.
 		WORK IN PROGRESS<br><br>
 
 	</div>
 
 	<div *ngIf="router.url === '/dashboard'" class="info">
 		-Logging info is displayed bottom right <br>
-		-Youll probably only appreciate this if your a software dev :)<br>
-		-Mess around with the site! (theres not much anyways right now)<br>
-		-Built with angularJS, nodeJS, heroku
+		-Youll probably only appreciate this if your a software dev (maybe) :)<br>
+		-Built with angularJS, nodeJS, postgresql, heroku
 	</div>
 
 	<div class="padding">
