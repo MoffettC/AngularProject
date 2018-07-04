@@ -125,17 +125,21 @@ app.get('/api/heroes/:id', async (req, res) => {
   }
 });
 
-app.get('/api/heroes/:name', async (req, res) => { //search call
+app.put('/api/heroes', async (req, res) => { //update call
   try {
-    console.log('connecting to get id db');
+    console.log('connecting to update db');
 
-    var name = req.params.name; //generic
+    console.log(req.body); //get object of request
+    var id = req.body.id; 
+    var food = req.body.name; 
 
     const client = await pool.connect();
-    const result = await client.query('SELECT id, food FROM test_table WHERE name = $1', [name]);
+    const result = await client.query('UPDATE test_table SET food = $2 WHERE id = $1', [id, food]);
 
-    var hero = {id: result.rows[0].id, name: result.rows[0].food}; //hero obj
-    res.send(hero);
+    const result = await client.query('SELECT * FROM test_table');
+    console.log(result);
+    //var hero = {id: result.rows[0].id, name: result.rows[0].food}; //hero obj
+    //res.send(hero);
 
     client.release();
     
