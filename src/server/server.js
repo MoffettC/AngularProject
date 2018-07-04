@@ -75,6 +75,32 @@ app.get('/api/heroes', async (req, res) => {
   }
 });
 
+app.get('/api/heroes/s', async (req, res) => { //search call
+  try {
+    console.log('connecting to get search db');
+
+    var name = req.query.name; //query tag not param
+
+    const client = await pool.connect();
+    //case insensitive search, || = concat
+    const result = await client.query("SELECT id, food FROM test_table WHERE LOWER(food) LIKE '%' || LOWER($1) || '%'", [name]); 
+
+    var heroes = [];
+    for (var i in result.rows) {
+      heroes.push({id: result.rows[i].id, name: result.rows[i].food});
+    }
+    res.send(heroes);
+
+    client.release();
+    
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
+//NOTE WILDCARD AND VAR matches to be put after static URLs if using same HTTP requests!!
+
 app.get('/api/heroes/:id', async (req, res) => {
   try {
     console.log('connecting to get id db');
