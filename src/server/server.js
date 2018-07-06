@@ -129,17 +129,43 @@ app.put('/api/heroes', async (req, res) => { //update call
   try {
     console.log('connecting to update db');
 
-    console.log(req.body); //get object of request
+    //console.log(req.body); //get object of request
     var id = req.body.id; 
     var food = req.body.name; 
 
     const client = await pool.connect();
-    const result = await client.query('UPDATE test_table SET food = $2 WHERE id = $1', [id, food]);
+    var result = await client.query('UPDATE test_table SET food = $2 WHERE id = $1', [id, food]);
 
-    const result = await client.query('SELECT * FROM test_table');
-    console.log(result);
+    //result = await client.query('SELECT * FROM test_table');
+    //console.log(result);
     //var hero = {id: result.rows[0].id, name: result.rows[0].food}; //hero obj
     //res.send(hero);
+
+    client.release();
+    
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
+app.post('/api/heroes', async (req, res) => { //add call
+  try {
+    console.log('connecting to add db');
+    var food = req.body.name; 
+
+    const client = await pool.connect();
+
+    //Get highest id currently in table, skipping over any poss null values and picking the first in the event of tie
+    var nextID = await client.query('SELECT id FROM test_table WHERE id = (SELECT MAX(id) FROM test_table) LIMIT 1');
+    //inc id
+    nextID = nextID.rows[0].id + 1;
+
+    //insert
+    var result = await client.query('INSERT INTO test_table (id, food) VALUES ($1, $2)', [nextID, food]);
+    
+    // result = await client.query('SELECT * FROM test_table');
+    // console.log(result);
 
     client.release();
     
