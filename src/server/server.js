@@ -175,6 +175,29 @@ app.post('/api/heroes', async (req, res) => { //add call
   }
 });
 
+app.delete('/api/heroes/:id', async (req, res) => { //add call
+  try {
+    console.log('connecting to delete db');
+    var id = req.params.id;
+
+    const client = await pool.connect();
+
+    if (id === null){
+      var reply = await client.query('DELETE FROM test_table WHERE id IS NULL'); //delete null keys
+    } else {
+      var reply = await client.query('DELETE FROM test_table WHERE id = $1', [id]);
+    }
+    var result = await client.query('SELECT * FROM test_table');
+    //console.log(result);
+
+    client.release();
+    
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
 
 
 app.get('/*', function(req,res) { //wild card last check

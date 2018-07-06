@@ -75,7 +75,7 @@ export class HeroService {
 
 	/** PUT: update the hero on the server */ 
 	updateHero (hero: Hero): Observable<any> {
-	  return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+	  return this.http.put(this.heroesUrl, hero, httpOptions).pipe( //send hero obj
 	    tap(_ => this.log(`updated food id=${hero.id}`)),
 	    catchError(this.handleError<any>('updateHero'))
 	  );
@@ -84,7 +84,7 @@ export class HeroService {
 
 	/** POST: add a new hero to the server */
 	addHero (hero: Hero): Observable<Hero> {
-	  return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
+	  return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe( //send hero obj
 	    tap((hero: Hero) => this.log(`added food w/ id=${hero.id}`)),
 	    catchError(this.handleError<Hero>('addHero'))
 	  );
@@ -95,7 +95,7 @@ export class HeroService {
 	  const id = typeof hero === 'number' ? hero : hero.id;
 	  const url = `${this.heroesUrl}/${id}`;
 
-	  return this.http.delete<Hero>(url, httpOptions).pipe(
+	  return this.http.delete<Hero>(url, httpOptions).pipe( //only send hero id
 	    tap(_ => this.log(`deleted food id=${id}`)),
 	    catchError(this.handleError<Hero>('deleteHero'))
 	  );

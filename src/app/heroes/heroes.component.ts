@@ -38,6 +38,8 @@ export class HeroesComponent implements OnInit {
       .subscribe(hero => {
         this.heroes.push(hero);
       });
+
+    this.getHeroes();
   }
 
   delete(hero: Hero): void {
