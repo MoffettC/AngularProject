@@ -77,6 +77,9 @@ nav a.active {
   overflow: hidden;
   width: 100%;
 
+  align-content: left;
+  text-align: left;
+  
   background-color: #33cccc;
   background-size: auto 100%;
 }

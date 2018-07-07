@@ -35,8 +35,8 @@ h4 {
   padding: 10px;
   text-align: center;
   color: #eee;
-  max-height: 120px;
-  min-width: 120px;
+  max-height: 100px;
+  min-width: 110px;
   background-color: #607d8b;
   border-radius: 2px;
 }
@@ -54,7 +54,9 @@ h4 {
 @media (max-width: 600px) {
   .module {
     font-size: 10px;
-    max-height: 75px; }
+    max-height: 75px; 
+    min-width: 50px;
+  }
 }
 @media (max-width: 1024px) {
   .grid {
