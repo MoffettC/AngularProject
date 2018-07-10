@@ -17,6 +17,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HeroSearchComponent } from './hero-search/hero-search.component'; //these two imports for testing on local server
 import { InMemoryDataService }  from './in-memory-data.service';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
 
   declarations: [
@@ -33,6 +35,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
   FormsModule,
   AppRoutingModule,
   HttpClientModule,
+  NgbModule.forRoot()
 
   // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
   // and returns simulated server responses.
