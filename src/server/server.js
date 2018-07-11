@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const { Pool, Client } = require('pg');
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production') {//requires env pkg
   const dotenv = require('dotenv');
   const { error } = dotenv.config();
   if (error) {

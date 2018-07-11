@@ -41,6 +41,14 @@ nav a.active {
   padding-top: 10px;
 }
 
+.randomizer {
+  margin: auto;
+  width: 50%;
+  align-content: center;
+  padding-top: 10px;
+  text-align: center;
+}
+
 .info {
   margin: auto;
   width: 30%;
