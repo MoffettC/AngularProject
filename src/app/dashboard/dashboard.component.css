@@ -51,11 +51,19 @@ h4 {
 .grid-pad > [class*='col-']:last-of-type {
   padding-right: 10px;
 }
+
+
 @media (max-width: 600px) {
   .module {
-    font-size: 10px;
+    font-size: 7px;
     max-height: 75px; 
-    min-width: 50px;
+    min-width: 20px;
+  }
+  .grid {
+    margin: 0;
+  }
+  h4 {
+    font-size: 12px;
   }
 }
 @media (max-width: 1024px) {
