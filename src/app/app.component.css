@@ -12,7 +12,7 @@ h2 {
 }
 
 span{
-padding-left: 15px;
+  padding-left: 15px;
 }
 
 nav a {
@@ -43,10 +43,11 @@ nav a.active {
 
 .randomizer {
   margin: auto;
-  width: 50%;
+  width: 100%;
   align-content: center;
   padding-top: 10px;
   text-align: center;
+  background-color: lightblue;
 }
 
 .info {
@@ -72,6 +73,7 @@ nav a.active {
 
 .padding{
   padding: 10px;
+  background-color: lightblue;
 }
 
 @media (max-width: 600px) {
