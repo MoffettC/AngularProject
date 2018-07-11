@@ -23,7 +23,8 @@ export class AppComponent {
   	title = 'Some Web App';
 
 	random(): void {
-    	var choice = this.getRandomArbitrary(0, this.heroes.length);
+    this.getHeroes();
+    var choice = this.getRandomArbitrary(0, this.heroes.length);
 
 		//console.log(choice);
     	//console.log(this.heroes[choice].name); //logs to client browser console!
